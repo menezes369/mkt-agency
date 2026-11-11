@@ -1,6 +1,6 @@
 const { useState, useEffect, useRef } = React;
 
-// Logo: coloque o arquivo logo.png na pasta public/ do projeto
+// Logo: coloque o arquivo  na pasta public/ do projeto
 const LOGO_SRC = "logo.png";
 const WHATSAPP_URL = "https://wa.me/5518996241216";
 
