@@ -1,6 +1,6 @@
 const { useState, useEffect, useRef } = React;
 
-// Logo: coloque o arquivo  na pasta public/ do projeto
+// Logo: coloque o arquivo logo.png na pasta public/ do projeto
 const LOGO_SRC = "logo.png";
 const WHATSAPP_URL = "https://wa.me/5518996241216";
 
@@ -113,8 +113,25 @@ body {
 }
 .rm-hero-inner { max-width: 1100px; margin: 0 auto; }
 .rm-nav { display: flex; align-items: center; justify-content: space-between; }
-.rm-logo { display: flex; align-items: center; gap: 14px; }
-.rm-mascote { width: 40px; height: 58px; object-fit: contain; font-size: 40px; line-height: 58px; text-align: center; }
+.rm-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.rm-mascote {
+  width: 40px;
+  height: 58px;
+  object-fit: contain;
+  background: transparent !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
 .rm-logo-txt { font-weight: 800; font-size: 31px; letter-spacing: -1.5px; color: var(--cyan); }
 .rm-logo-txt span { color: var(--purple); }
 
@@ -530,12 +547,23 @@ function Carrossel() {
 
 function Logo() {
   return (
-    <>
-      <img className="rm-mascote" src={LOGO_SRC} alt="" />
+    <div className="rm-logo">
+      <img 
+        src={LOGO_SRC} 
+        className="rm-mascote" 
+        alt="Logo" 
+        style={{
+          background: "transparent",
+          border: "none",
+          outline: "none",
+          boxShadow: "none"
+        }}
+      />
       <span className="rm-logo-txt">agência <span>mkt</span></span>
-    </>
+    </div>
   );
 }
+
 
 function Contador({ prefix = "", to, suffix = "" }) {
   const ref = useRef(null);
@@ -568,7 +596,8 @@ function AgenciaMkt() {
   const rootRef = useRef(null);
   const barRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
-    // progresso de rolagem, barra flutuante e rolagem suave
+
+  // progresso de rolagem, barra flutuante e rolagem suave
   useEffect(() => {
     const html = document.documentElement;
     const prev = html.style.scrollBehavior;
@@ -683,8 +712,7 @@ function AgenciaMkt() {
           </div>
         </div>
       </section>
-
-      {/* 3. NÚMEROS */}
+{/* 3. NÚMEROS */}
       <section className="rm-nums" id="numeros" aria-label="Números da agência">
         <span className="rm-eyebrow" data-reveal>(02) Em números</span>
         <div className="rm-nums-inner">
@@ -729,4 +757,4 @@ function AgenciaMkt() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AgenciaMkt />);
+root.render(React.createElement(AgenciaMkt));
