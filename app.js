@@ -1,7 +1,7 @@
 const { useState, useEffect, useRef } = React;
 
 // Logo: coloque o arquivo logo.png na pasta public/ do projeto
-const LOGO_SRC = "/logo.png";
+const LOGO_SRC = "logo.png";
 const WHATSAPP_URL = "https://wa.me/5518996241216";
 
 const SERVICOS = [
@@ -273,7 +273,17 @@ const css = `
 @keyframes rm-rise { from { opacity: 0; transform: translateY(26px); } }
 .rm-hero-grid { display: grid; gap: 40px; align-items: center; }
 .rm-art { position: relative; display: grid; place-items: center; min-height: 300px; }
-.rm-art img { position: relative; width: min(78%, 420px); height: auto; animation: rm-float 6s ease-in-out infinite; filter: drop-shadow(0 30px 40px rgba(12,12,22,.25)); }
+.rm-art img { 
+  position: relative; 
+  width: min(78%, 420px); 
+  height: auto; 
+  animation: rm-float 6s ease-in-out infinite; 
+  filter: drop-shadow(0 30px 40px rgba(12,12,22,.25)); 
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+}
+
 .rm-art-emoji { position: relative; font-size: clamp(150px, 38vw, 280px); line-height: 1; animation: rm-float 6s ease-in-out infinite; }
 .rm-art-glow { position: absolute; width: 80%; aspect-ratio: 1; border-radius: 50%; filter: blur(50px); opacity: .45; animation: rm-spin 22s linear infinite;
   background: conic-gradient(from 90deg,#96e84a,#00c8e6,#9446f0,#ff2e85,#ffb614,#96e84a); }
@@ -358,7 +368,6 @@ const css = `
   .rm *, .rm *::before, .rm *::after { animation: none !important; transition: none !important; }
   .rm [data-reveal] { opacity: 1; transform: none; }
 }
-
 /* ===== ESTÉTICA "GLASS ESCURO" · roxo + rosa (sempre escuro) ===== */
 .rm {
   color-scheme: dark;
@@ -464,7 +473,6 @@ const css = `
   .rm .rm-hero-inner { padding: 30px 44px 36px; border-radius: 44px; }
   .rm .rm-final { margin: 0 18px; padding: 130px 56px; border-radius: 44px; }
 }
-
 /* ===== ajustes: botões compactos, logo baleia, nome "agência mkt" ===== */
 .rm .rm-btn { white-space: nowrap; flex-shrink: 0; font-size: 16px; padding: 14px 26px; }
 .rm .rm-nav { gap: 12px; }
@@ -544,12 +552,11 @@ function Contador({ prefix = "", to, suffix = "" }) {
 
 const Seta = ({ down }) => <span className={`ar${down ? " down" : ""}`} aria-hidden="true">{down ? "↓" : "↗"}</span>;
 
-export default function AgenciaMkt() {
+function AgenciaMkt() {
   const rootRef = useRef(null);
   const barRef = useRef(null);
   const [scrolled, setScrolled] = useState(false);
-
-  // progresso de rolagem, barra flutuante e rolagem suave
+    // progresso de rolagem, barra flutuante e rolagem suave
   useEffect(() => {
     const html = document.documentElement;
     const prev = html.style.scrollBehavior;
@@ -637,7 +644,6 @@ export default function AgenciaMkt() {
       </header>
 {/* 1.5 CARROSSEL DE FRASES */}
       <Carrossel />
-
       {/* 2. SERVIÇOS */}
       <section className="rm-serv" id="servicos">
         <div className="rm-serv-inner">
