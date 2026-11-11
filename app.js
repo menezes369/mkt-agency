@@ -25,6 +25,18 @@ const css = `
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap');
 
+html, body, #root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  min-height: 100%;
+  background: #050506 !important;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 .rm, .rm * { box-sizing: border-box; }
 .rm {
   --ink: #0c0c16;
